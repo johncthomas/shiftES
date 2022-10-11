@@ -1,8 +1,6 @@
-from importlib import resources
+import pkg_resources
 
-from . import test_files
-
-for x in test_files:
-    print(x)
+f = pkg_resources.resource_filename(__name__, 'test_files/test_data.csv')
+print(f)
 
 
