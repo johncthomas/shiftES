@@ -8,7 +8,6 @@ setup(
     install_requires = ['numpy', 'pandas'],
     scripts = ['shiftes/shiftes.py'],
     python_requires = '>=3.7',
-    package_data={"shiftes":["test_files/*.*"]},
     include_package_data=True,
 )
 
