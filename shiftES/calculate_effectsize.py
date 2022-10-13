@@ -1,7 +1,7 @@
 import argparse, sys, itertools
 import pandas as pd
 import numpy as np
-from shiftes import effectsize, effectsize_ci
+from shiftES.shiftes import effectsize, effectsize_ci
 
 def _load_table(fn, filetype, header=True, sheet=0):
     """Load table using arguments given at command line.
