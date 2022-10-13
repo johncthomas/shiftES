@@ -5,7 +5,8 @@ Implimentation of Wilcox shift effect size with command line interface,
 Run from command line, `python calculate_effectsize.py -h` for help.
 
 Input files should be structured with a column of values per sample, e.g.
-```Samp1  Samp2 Samp3
+```
+Samp1  Samp2 Samp3
 4.3 7.5 3.4
 4.5 8.3 2.4
 ```
