@@ -3,7 +3,7 @@ import pandas as pd
 import numpy as np
 from shiftES.shiftes import effectsize, effectsize_ci
 
-def _load_table(fn, filetype, header=True, sheet=0):
+def _load_table(fn, filetype, has_header=True, sheet=0):
     """Load table using arguments given at command line.
     Headerless tables will have header made up of string integers
     starting from one, as the CL args assume one indexed and are str by default."""
@@ -24,7 +24,8 @@ def _load_table(fn, filetype, header=True, sheet=0):
         else:
             raise ValueError(f"Couldn't automatically detect type of file, {fn}")
 
-    header = [None, 0][header]
+    # passed to pandas header option
+    header = [None, 0][has_header]
 
     if filetype in 'ct':
         sep = dict(c=',', t='\t')[filetype]
@@ -34,8 +35,8 @@ def _load_table(fn, filetype, header=True, sheet=0):
         table = pd.read_excel(fn, header=header, sheet_name=sheet)
     # the else is covered above, no other values should make it this far
 
-    if not header:
-        table.columns = table.columns.map(lambda x: str(x+1))
+    if not has_header:
+        table.columns = table.columns.map(lambda x: str(int(x)+1))
 
     return table
 
@@ -58,8 +59,8 @@ def run_from_cmdline(args):
     table = _load_table(
         fn=args.file,
         filetype=args.type,
-        header=(not args.no_header),
-        sheet=args.sheet_number-1,
+        has_header=(not args.no_header),
+        sheet=int(args.sheet_number)-1,
     )
 
     column_pairs = list_column_pairs(table, colA, colB)
@@ -108,7 +109,7 @@ def run_from_cmdline(args):
             results.to_csv(fn, **kwargs)
 
 
-def parse_args(args):
+def parse_args(cmdline_args):
 
     parser = argparse.ArgumentParser(
         description=(
@@ -159,10 +160,10 @@ def parse_args(args):
     )
     parser.add_argument(
         '--sheet-number', default=1,
-        help="Excel only: if the sheet is not the first one, give its number here. 1-indexed"
+        help="Excel only: if the sheet is not the first one, give its position here. 1-indexed"
     )
 
-    return parser.parse_args(args)
+    return parser.parse_args(cmdline_args)
 
 if __name__ == '__main__':
     args = parse_args(sys.argv[1:])
