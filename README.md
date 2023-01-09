@@ -14,9 +14,11 @@ Samp1 Samp2 Samp3
 Files can be comma/tab separated values, or a Excel .xlsx. File type will be automatically detected.
 
 
-To test every sample against every other sample, with confidence intervals, use:  
-`shift_effectsize.py shiftes_results.csv ALL ALL -o results.csv --ci`
+To test every sample against every other sample, with 95% confidence intervals, use:  
+`shift_effectsize.py input_file_name.csv ALL ALL -o shiftes_results.csv --ci`
 
-Results will be saved in a table saved as `shiftes_results`.
+Results will be saved in a table saved as `shiftes_results.csv`.
+
+The given effect size is Ω, which ranges between -1 and +1 and is described in Wilcox's paper. As a guide: small 0.1; medium 0.3; large 0.4
 
 To use within Python `from shiftES import effectsize, effectsize_ci, difference_dist` and see inline documentation.
