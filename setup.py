@@ -14,7 +14,7 @@ setup(
     readme = "README.md",
     long_description=long_description,
     long_description_content_type='text/markdown',
-    scripts = ['shiftES/calculate_effectsize.py'],
+    scripts = ['shiftES/shift_effectsize.py'],
     python_requires = '>=3.6',
     include_package_data=True, #uses MANIFEST.in
 )
