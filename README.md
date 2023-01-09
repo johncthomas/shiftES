@@ -19,6 +19,7 @@ To test every sample against every other sample, with 95% confidence intervals, 
 
 Results will be saved in a table saved as `shiftes_results.csv`.
 
-The given effect size is Ω, which ranges between -1 and +1 and is described in Wilcox's paper. As a guide: small 0.1; medium 0.3; large 0.4
+The given effect size is Ω, which ranges between -1 and +1 and is described in Wilcox's paper. 
+As a guide: small 0.1; medium 0.3; large 0.4
 
 To use within Python `from shiftES import effectsize, effectsize_ci, difference_dist` and see inline documentation.

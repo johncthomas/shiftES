@@ -35,8 +35,8 @@ def _load_table(fn, filetype, has_header=True, sheet=0):
     elif filetype == 'x':
         sheet = int(sheet)
         table = pd.read_excel(fn, header=header, sheet_name=sheet)
-    # the else is covered above, no other values should make it this far
 
+    # the else is covered above, no other values should make it this far
     if not has_header:
         table.columns = table.columns.map(lambda x: str(int(x)+1))
 
