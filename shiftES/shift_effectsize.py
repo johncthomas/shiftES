@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 import argparse, sys, itertools
 import pandas as pd
 import numpy as np
@@ -149,7 +151,7 @@ def parse_args(cmdline_args):
     )
     parser.add_argument(
         '-t', '--type', default='a',
-        help="Input file type, can be 'a' for autodetect, 'c' for comma-separated-values, 't' for tab-sep-vals, "
+        help="Input file type, default 'a' for autodetect, 'c' for comma-separated-values, 't' for tab-sep-vals, "
              "'x' for .xlsx . If 'a' the script will guess based on the file name."
     )
     parser.add_argument(

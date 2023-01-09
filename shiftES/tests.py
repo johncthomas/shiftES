@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 import pkg_resources
-from shiftES.calculate_effectsize import parse_args, run_from_cmdline
+from shiftES.shift_effectsize import parse_args, run_from_cmdline
 
 if __name__ == '__main__':
     filepath = lambda fn: pkg_resources.resource_filename(__name__, f'test_files/{fn}')
